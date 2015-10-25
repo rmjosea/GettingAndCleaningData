@@ -1,4 +1,4 @@
-Getting and Cleaning Data Course Project
+#Getting and Cleaning Data Course Project
 
 This descriptions were taken from features.txt
 
@@ -45,7 +45,7 @@ fBodyGyroMag
 
 fBodyGyroJerkMag
 
-The set of variables that were estimated from these signals are:
+####The set of variables that were estimated from these signals are:
 
 mean(): Mean value
 
@@ -65,7 +65,7 @@ library(data.table)
 
 library(tidyr)
 
-Files in folder ‘UCI HAR Dataset’ that will be used are:
+####Files in folder ‘UCI HAR Dataset’ that will be used are:
 
 This are the Subject Files
 
@@ -73,13 +73,13 @@ test/subject_test.txt
 
 train/subject_train.txt
 
-ACTIVITY FILES
+####ACTIVITY FILES
 
 test/X_test.txt
 
 train/X_train.txt
 
-DATA FILES
+####DATA FILES
 
 test/y_test.txt
 
@@ -99,7 +99,6 @@ library(data.table)
 
 library(tidyr)
 ```
-
 2. Read Data 
 ```
 
@@ -139,10 +138,8 @@ dataTrain <- tbl_df(read.table(file.path(pathTrain, "X_train.txt" )))
 
 dataTest  <- tbl_df(read.table(file.path(pathTest, "X_test.txt" )))
 ```
-
 3. Merge Data
 ```
-
 ##  Merges data
 
 ## Activity and Subject files merge 
@@ -193,7 +190,6 @@ dataFeaturesMeanDesviation <- union(c("subject","activityNum"), dataFeaturesMean
 
 combineDataTable<- subset(combineDataTable,select=dataFeaturesMeanDesviation)
 ```
-
 4. Write a tidy File
 ```
 write.table(combineDataTable, "TidyDataSet.txt", row.name=FALSE)
