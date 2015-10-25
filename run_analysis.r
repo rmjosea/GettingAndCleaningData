@@ -23,7 +23,7 @@ dataActivityTrain <- tbl_df(read.table(file.path(pathTrain,"y_train.txt")))
 dataTrain <- tbl_df(read.table(file.path(pathTrain, "X_train.txt" )))
 dataTest  <- tbl_df(read.table(file.path(pathTest, "X_test.txt" )))
 
-##  Merges the training and the test sets to create one data set.
+##  Merges data
 
 ## Activity and Subject files merge 
 ##All Data Subject
@@ -68,5 +68,5 @@ dataTable$activityName <- as.character(combineDataTable$activityName)
 dataAggr<- aggregate(. ~ subject - activityName, data = combineDataTable, mean) 
 combineDataTable<- tbl_df(arrange(dataAggr,subject,activityName))
 
-write.table(combineDataTable, "TidyDataSet.txt", row.name=FALSE)
+write.table(combineDataTable, "../TidyDataSet.txt", row.name=FALSE)
 
