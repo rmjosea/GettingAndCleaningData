@@ -92,14 +92,16 @@ activity_labels.txt - Links the class labels with their activity name.
 The follow steps were follow to complete the activity describe in the assigment
 
 1. Load packages
-
+```
 library(dplyr)
 
 library(data.table)
 
 library(tidyr)
+```
 
 2. Read Data 
+```
 
 ##Path to data
 
@@ -136,8 +138,10 @@ dataActivityTrain <- tbl_df(read.table(file.path(pathTrain,"y_train.txt")))
 dataTrain <- tbl_df(read.table(file.path(pathTrain, "X_train.txt" )))
 
 dataTest  <- tbl_df(read.table(file.path(pathTest, "X_test.txt" )))
+```
 
 3. Merge Data
+```
 
 ##  Merges data
 
@@ -188,7 +192,9 @@ dataFeaturesMeanDesviation <- grep("mean\\(\\)|std\\(\\)",dataFeatures$featureNa
 dataFeaturesMeanDesviation <- union(c("subject","activityNum"), dataFeaturesMeanDesviation)
 
 combineDataTable<- subset(combineDataTable,select=dataFeaturesMeanDesviation)
+```
 
 4. Write a tidy File
-
+```
 write.table(combineDataTable, "TidyDataSet.txt", row.name=FALSE)
+```
